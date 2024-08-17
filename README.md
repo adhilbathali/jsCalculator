@@ -1,7 +1,7 @@
 # jsCalculator
 ### This is a repository to showcase a calculator build in html, CSS and JavaScript. Following is the calculator design and it's algorithm.
 ## **Design**
-![Calculator Design](https://github.com/adhilbathali/jsCalculator/main/media/jsCalculator.png)
+![Calculator Design](https://github.com/adhilbathali/jsCalculator/blob/main/media/jsCalculator.png)
 ## **Algorithm**
 1. start.
 2. if any key is clicked, go to step 3 else go to step 5.
