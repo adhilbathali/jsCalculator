@@ -10,6 +10,7 @@ const numberKeys = Array.from(keypad.querySelectorAll('.number-btn'));
 
 // operators
 const operatorKeys = Array.from(keypad.querySelectorAll('.operator-btn'));
+const operatorNodeList = keypad.querySelectorAll('.operator-btn');
 
 var firstOperand = undefined;
 var secondOperand = undefined;
@@ -18,6 +19,15 @@ var isEnteringFirst = true;
 
 keys.forEach(key => {
     key.addEventListener('click', () => {
+
+
+        operatorNodeList.forEach(opKey => {
+            if(opKey.textContent !== '=' && !numberKeys.includes(key) && key.textContent !== '+/-' && key.textContent !== '%'){
+                opKey.style.backgroundColor = 'orange';
+            }
+        })
+
+
         if(key.textContent === 'AC'){
             firstOperand = undefined;
             secondOperand = undefined;
@@ -47,6 +57,7 @@ keys.forEach(key => {
             isEnteringFirst = false;
         }
         else if(operatorKeys.includes(key)){
+
             if(firstOperand === undefined){
                 // checking whether number after converting is not Nan
                 if(!isNaN(Number(screen.textContent))){
@@ -94,7 +105,10 @@ keys.forEach(key => {
                 firstOperand = secondOperand = undefined;
             }
             isEnteringFirst = true;
-            operator = key.textContent;  
+            operator = key.textContent;
+            if(key.textContent !== '='){
+                key.style.backgroundColor = 'royalblue'
+            }  
         }
     })
 })
